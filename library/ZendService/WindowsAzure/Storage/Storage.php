@@ -360,7 +360,7 @@ class Storage
 
         // Execute request
         $response = $this->_retryPolicy->execute(
-            array($this->_httpClientChannel, 'request'),
+            array($this->_httpClientChannel, 'send'),
             array($httpVerb)
         );
 
