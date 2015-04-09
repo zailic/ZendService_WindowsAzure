@@ -357,11 +357,12 @@ class Storage
         $this->_httpClientChannel->setUri($requestUrl);
         $this->_httpClientChannel->setHeaders($requestHeaders);
         $this->_httpClientChannel->setRawBody($rawData);
+        $this->_httpClientChannel->setMethod($httpVerb);
 
         // Execute request
         $response = $this->_retryPolicy->execute(
             array($this->_httpClientChannel, 'send'),
-            array($httpVerb)
+            array()
         );
 
         return $response;
